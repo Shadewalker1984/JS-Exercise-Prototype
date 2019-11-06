@@ -46,7 +46,8 @@ function Person(name, age) {
 }
 
 Person.prototype.eat = function (food) {
- for (stomach = 0; this.stomach.length < 10; stomach++) {
+//  for (stomach = 0; this.stomach.length < 10; stomach++) {
+  if (this.stomach.length < 10) {
    this.stomach.push(food);
  }
 }
@@ -97,7 +98,7 @@ Car.prototype.drive = function(distance) {
   this.odometer = distance;
   this.tank = this.milesPerGallon - distance;
   const maxDrivableDistance = (this.tank * this.milesPerGallon);
-  if (maxDrivableDistance >= distance) {
+  if (maxDrivableDistance <= distance) {
     return `I ran out of fuel at ${this.odometer} miles!`
   }
   // if (this.tank > 0) {
