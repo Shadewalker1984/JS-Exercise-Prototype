@@ -101,10 +101,12 @@ function Baby() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1.  if "this" is contained in the global function, it will point toward the window.
+  2.  if this is inside of the function scope, it will make reference to value that is in the function itself. 
+      if the function is called preceeding a dot, then it will reference what is left of that dot. 
+  3.  if "this" is used in a constructor function, used with conjunction "new", it will reference the specific object 
+      inside that specific instance of the constructor function.
+  4.  if you use a function with call or apply, then "this" is defined explicitly after. 
 */
 
 
