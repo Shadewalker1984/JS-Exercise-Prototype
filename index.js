@@ -46,7 +46,7 @@ function Person(name, age) {
 }
 
 Person.prototype.eat = function (food) {
- for (stomach = 0; this.stomach.length <= 10; stomach++) {
+ for (stomach = 0; this.stomach.length < 10; stomach++) {
    this.stomach.push(food);
  }
 }
@@ -96,7 +96,21 @@ Car.prototype.fill = function(gallons) {
 Car.prototype.drive = function(distance) {
   this.odometer = distance;
   this.tank = this.milesPerGallon - distance;
+  const maxDrivableDistance = (this.tank * this.milesPerGallon);
+  if (maxDrivableDistance >= distance) {
+    return `I ran out of fuel at ${this.odometer} miles!`
+  }
+  // if (this.tank > 0) {
+  //   this.tank = this.tank - (this.milesPerGallon/distance);
+  // } else {
+  //   return `I ran out of fuel at ${this.odometer} miles!`
+  // }
+  // if (this.tank === 0) {
+  //   this.tank = 0;
+  // }
+
 }
+
 
 /*
   TASK 3
@@ -120,7 +134,7 @@ Baby.prototype.play = function () {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1.  if "this" is contained in the global function, it will point toward the window.
+  1.  if "this" is contained in the global scope, it will point toward the window (which references the entirity of javascript for some reason).
   2.  if this is inside of the function scope, it will make reference to value that is in the function itself. 
       if the function is called preceeding a dot, then it will reference what is left of that dot. 
   3.  if "this" is used in a constructor function, used with conjunction "new", it will reference the specific object 
